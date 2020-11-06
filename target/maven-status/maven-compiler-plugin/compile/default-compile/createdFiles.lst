@@ -1,0 +1,10 @@
+com/antoinelamoureux/cda_jsf_webapp/entities/News.class
+com/antoinelamoureux/cda_jsf_webapp/entities/Tag.class
+com/antoinelamoureux/cda_jsf_webapp/entities/Theme.class
+com/antoinelamoureux/cda_jsf_webapp/business/ThemeFacade.class
+com/antoinelamoureux/cda_jsf_webapp/JAXRSConfiguration.class
+com/antoinelamoureux/cda_jsf_webapp/business/AbstractFacade.class
+com/antoinelamoureux/cda_jsf_webapp/controllers/Indexcontroller.class
+com/antoinelamoureux/cda_jsf_webapp/business/NewsFacade.class
+com/antoinelamoureux/cda_jsf_webapp/resources/JavaEE8Resource.class
+com/antoinelamoureux/cda_jsf_webapp/business/TagFacade.class
