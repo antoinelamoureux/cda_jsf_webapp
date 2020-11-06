@@ -11,10 +11,12 @@
     <h:body>
        <ui:composition>
             <nav>
-                <span><h:link value="Acceuil" outcome="/index.xhtml"/>&nbsp;</span>
-                <c:forEach var="themes" items="#{indexcontroller.themes}">
-                    <span>#{themes.libelle}</span>&nbsp;
+                <h:form>
+                    <span><h:commandLink value="Accueil" action="#{indexcontroller.clearAll}"/>&nbsp;</span>
+                <c:forEach var="theme" items="#{indexcontroller.themes}">
+                    <span><h:commandLink value="#{theme.libelle}" action="#{indexcontroller.getNewsForTheme(theme)}"/></span>&nbsp;
                 </c:forEach>
+                </h:form>
             </nav>
         </ui:composition>
     </h:body>

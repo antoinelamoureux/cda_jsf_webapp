@@ -15,14 +15,24 @@
                     <h2>Détails pour la news #{indexcontroller.currentNews.titre}</h2>
                     <h:panelGrid columns="2">
                         <h:panelGroup>
-                            <h:commandLink class="theme">#{indexcontroller.currentNews.theme.libelle}</h:commandLink>
+                            <h:commandLink value="#{indexcontroller.currentNews.theme.libelle}" action="#{indexcontroller.getNewsForTheme(indexcontroller.currentNews.theme)}"/>
                             <div class="news title">#{indexcontroller.currentNews.titre}</div>
                             <div class="news content">#{indexcontroller.currentNews.content}</div>
                         </h:panelGroup>
                         <h:panelGroup>
                             <c:forEach var="tag" items="#{indexcontroller.currentNews.tagsCollection}">
-                                <h:commandLink class="tag">#{tag.libelle}</h:commandLink>
+                                <h:commandLink class="tag" action="#{indexcontroller.getNewsForTag(tag)}">#{tag.libelle}</h:commandLink>
                             </c:forEach>
+                        </h:panelGroup>
+                        <h:panelGroup>
+                            <div>
+                            <h:commandLink class="tag" action="#{indexcontroller.getNewsForTheme(indexcontroller.currentNews.theme)}">Afficher les news pour le theme #{indexcontroller.currentNews.theme.libelle}</h:commandLink>
+                            <c:forEach var="tag" items="#{indexcontroller.currentNews.tagsCollection}">
+                                <div>
+                                <h:commandLink class="tag" action="#{indexcontroller.getNewsForTag(tag)}">Afficher les news pour le tag #{tag.libelle}</h:commandLink>
+                                </div>
+                            </c:forEach>
+                            </div>
                         </h:panelGroup>
                     </h:panelGrid>
                 </h:form>

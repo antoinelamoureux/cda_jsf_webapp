@@ -11,14 +11,23 @@
     <h:body>
         <ui:composition template="/template/template.xhtml">
             <ui:define name="main">
-                <p>Bienvenue</p>
-                <h2>Les actualités</h2>
+                <c:choose>
+                    <c:when test="#{indexcontroller.currentTheme != null}">
+                        <h2>#{indexcontroller.currentTheme.libelle}</h2>
+                    </c:when>
+                    <c:when test="#{indexcontroller.currentTag != null}">
+                        <h2>#{indexcontroller.currentTag.libelle}</h2>
+                    </c:when>
+                    <c:otherwise>
+                        <h2>Toutes les actualités</h2>
+                    </c:otherwise>
+                </c:choose>
                 <h:form>
                     <c:forEach var="news" items="#{indexcontroller.news}">
                         <div class="news" style="margin-bottom: 35px;">
-                        <div class="news title"><h:commandLink id="newsDetail" value="#{news.titre}" action="#{indexcontroller.getNewsDetails(news.idNews)}"/></div>
-                        <div class="news content">#{news.content}</div>
-                        <div class="theme"><h:commandLink value="#{news.theme.libelle}" action="#{indexcontroller.getNewsDetails(news.idNews)}"/></div>
+                            <div class="news title"><h:commandLink id="newsDetail" value="#{news.titre}" action="#{indexcontroller.getNewsDetails(news.idNews)}"/></div>
+                            <div class="news content">#{news.content}</div>
+                            <div class="theme"><h:commandLink value="#{news.theme.libelle}" action="#{indexcontroller.getNewsForTheme(news.theme)}"/></div>
                         </div>
                     </c:forEach>
                 </h:form>

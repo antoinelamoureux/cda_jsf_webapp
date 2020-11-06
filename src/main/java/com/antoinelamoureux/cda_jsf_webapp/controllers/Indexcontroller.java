@@ -71,6 +71,27 @@ public class Indexcontroller implements Serializable {
 
         return "results";
     }
+    
+    public String getNewsForTag(Tag tag) {
+        currentTag = tag;
+        news = (List<News>) currentTag.getNewsCollection();
+        
+        return "index";
+    }
+    
+    public String getNewsForTheme(Theme theme) {
+        currentTheme = theme;
+        news = (List<News>) currentTheme.getNewsCollection();
+        
+        return "index";
+    }
+    
+    public void clearAll() {
+        currentTheme = null;
+        currentTag = null;
+        news = null;
+        news = this.getNews();
+    }
 
     public NewsFacade getNewsFacade() {
         return newsFacade;
